@@ -1,0 +1,6 @@
+# Broadcom wifi
+ACTION=="add" SUBSYSTEM=="sdio" ATTR{vendor}=="0x02d0" RUN+="/sbin/initctl start nvwifibt SUBTASK=register BCMCHIP=$attr{device}"
+
+# turn on/off bluetooth
+ACTION=="change" SUBSYSTEM=="rfkill" ATTR{name}=="bluedroid_pm" ATTR{state}=="1" RUN+="/sbin/initctl start nvwifibt SUBTASK=power"
+ACTION=="change" SUBSYSTEM=="rfkill" ATTR{name}=="bluedroid_pm" ATTR{state}=="0" RUN+="/sbin/initctl stop nvwifibt SUBTASK=power"

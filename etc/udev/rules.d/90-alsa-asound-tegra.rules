@@ -1,0 +1,7 @@
+SUBSYSTEM!="sound", GOTO="sound_end"
+KERNEL!="card*", GOTO="sound_end"
+
+ATTRS{id}=="tegrart5639", RUN+="/bin/ln -sf /etc/asound.conf.tegrart5639 /etc/asound.conf"
+ATTRS{id}=="tegramax98090", RUN+="/bin/ln -sf /etc/asound.conf.tegramax98090 /etc/asound.conf"
+
+LABEL="sound_end"
